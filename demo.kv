@@ -1,0 +1,83 @@
+#:kivy 0.104.2
+<BuildApp>:
+    MDTextField:
+        id: plan_name
+        hint_text: "Enter Plan Name"
+        helper_text: "Enter the name of a new workout plan"
+        helper_text_mode: "on_focus" 
+        text_color : (1,1,1)
+        icon_right: "pencil"
+        icon_right_color: app.theme_cls.primary_color
+        pos_hint: {'center_x': 0.5, 'center_y':0.9}
+        size_hint_x: None
+        width: 300
+
+    MDRectangleFlatButton:
+        text: "Search"
+        text_color: app.theme_cls.primary_color
+        pos_hint : {'center_x':0.2, 'center_y':0.15}
+        on_release: root.searching()
+
+    MDRectangleFlatButton:
+        text: "Submit"
+        text_color: app.theme_cls.primary_color
+        pos_hint: {'center_x':0.6, 'center_y': 0.15} 
+        on_release: root.insertion(), root.submit(self.text)                          #functions in BuildApp should be referred by root
+
+    MDRectangleFlatButton:
+        text: "Update"
+        id: update
+        text_color: app.theme_cls.primary_color
+        pos_hint: {'center_x':0.8, 'center_y': 0.15} 
+        on_release: root.updation()
+    
+    MDRectangleFlatButton:
+        text: "Delete"
+        id: delete
+        text_color: app.theme_cls.primary_color
+        pos_hint: {'center_x':0.4, 'center_y': 0.15}
+        on_release: root.deletion() 
+
+
+    MDFloatingActionButton:
+        icon: 'help'
+        theme_text_color: 'Custom'
+        text_color : (162/255, 230/255, 175/255)
+        md_bg_color: app.theme_cls.primary_color                    #Themes should be specified in MDApp Class
+        pos_hint: {'center_x': .9, 'center_y': 0.1}                 #They should also be referenced by app and not root.
+
+    MDRoundFlatIconButton:
+        id: pushup_diff
+        text: "Push"
+        theme_text_color : "Custom"
+        text_color : (1,1,1)
+        md_bg_color : app.theme_cls.primary_color
+        size_hint: (None ,0.06)
+        width: 100
+        icon: 'boxing-glove'
+        pos_hint: {'center_x': 0.2, 'center_y': 0.8}
+        on_release: root.drop.open()
+
+    MDRoundFlatIconButton:
+        id: pullup_diff
+        text: "Pull"
+        theme_text_color : "Custom"
+        text_color :(1, 1, 1)
+        md_bg_color : app.theme_cls.primary_color
+        size_hint: (None ,0.06)
+        width: 100
+        icon: 'boxing-glove'
+        pos_hint: {'center_x': 0.505, 'center_y': 0.8}
+        on_release: root.drop1.open()
+    
+    MDRoundFlatIconButton:
+        id: legs_diff
+        text: "Legs"
+        theme_text_color : "Custom"
+        text_color :(1, 1, 1)
+        md_bg_color : app.theme_cls.primary_color
+        size_hint: (None, 0.06)
+        width: 100
+        icon: 'boxing-glove'
+        pos_hint: {'center_x': 0.8, 'center_y': 0.8}
+        on_release: root.drop2.open()
